@@ -166,7 +166,7 @@
   }
   .qa-tags { display: flex; flex-direction: column; gap: 3px; align-items: flex-start; width: 100%; }
 
-  .qa-app img,
+ .qa-app img,
  .app-item img {
   width: 78.62px !important;
   height: 70.41px !important;
@@ -177,21 +177,28 @@
 
   .qa-card .tag {
   background: #F49AC1 !important;
+    color: #000000 !important;
 }
+
+  .app-item .tag {
+  background: #005BA6 !important;
+  color: #fff !important;
+}
+
+
 
   /* Tags */
   .tag {
-    font-size: 9px; font-weight: 500; padding: 2px 8px;
-    border-radius: 10px; white-space: nowrap;
-    font-family: 'Poppins', sans-serif; cursor: pointer;
-  }
-  .tag.green  { background: #005BA6; color: #fff; }
-  .tag.pink   { background: #005BA6; color: #fff; }
-  .tag.blue   { background: #005BA6; color: #fff; }
-  .tag.gray   { background: #005BA6; color: #fff; }
-  .tag.orange { background: #005BA6; color: #fff; }
-  .tag.teal   { background: #005BA6; color: #fff; }
-  .tag.purple { background: #005BA6; color: #fff; }
+  font-size: 10px;
+  font-weight: 500;
+  padding: 2px 8px;
+  margin-bottom: 2px;
+  border-radius: 10px;
+  white-space: nowrap;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+}
+
 
   /* ── Section grid rows ── */
   /* Two-column layout for paired sections (Learning + Careers, etc.) */
