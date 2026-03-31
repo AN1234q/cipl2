@@ -89,7 +89,7 @@
   .full-panel {
     flex: 1;
     padding: 18px 22px 16px;
-    display: flex; flex-direction: column; gap: 14px;
+    display: flex; flex-direction: column; gap: 0;
     height: 100vh; overflow-y: auto; overflow-x: hidden;
     background: #fff;
   }
@@ -134,7 +134,7 @@
     gap: 6px; width: 90px; padding: 0;
   }
   .qa-app {
-  width: 130px;
+  width: 150px;
   height: 210px;
   background: #D9D9D933;
   border-radius: 12px;
@@ -143,6 +143,7 @@
   flex-direction: column;
   justify-content: flex-start;
 }
+
 .app-item {
   width: 130px;
   height: 180px;
@@ -158,7 +159,7 @@
     display: flex; align-items: center; justify-content: center;
     cursor: pointer; transition: transform .2s, box-shadow .2s; flex-shrink: 0;
   }
-  .qa-icon:hover { transform: translateY(-2px); box-shadow: 0 7px 18px rgba(0,0,0,0.16); }
+  .qa-icon:hover { transform: translateY(-2px); box-shadow: 0 7px 18px rgba(0,0,0,0 .16); }
   .qa-icon.pink { background: linear-gradient(135deg, #f472b6, var(--pink)); }
   .qa-name {
     font-family: 'Poppins', sans-serif; font-size: 10px; font-weight: 550;
@@ -183,6 +184,16 @@
   .app-item .tag {
   background: #005BA6 !important;
   color: #fff !important;
+}
+  
+  .qa-app:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.15);
+  
+  }
+  .app-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.15);
 }
 
 
@@ -210,13 +221,16 @@
   /* Section card */
   .section-card {
     background: #fff; border-radius: var(--card-radius);
-    padding: 16px 18px; flex-shrink: 0;
-    box-shadow: 0 2px 10px rgba(0,48,135,0.07);
+    padding: 0; flex-shrink: 0;
+    box-shadow: none;
   }
 
   /* App grid inside a section card */
   .app-grid {
-    display: flex; flex-wrap: wrap; gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 150px));
+    gap: 10px;
+    justify-content: start;
   }
 
   /* Each app item */
@@ -459,14 +473,14 @@
 </div>
 <div class="app-item" onclick="openApp('https://performancemanager10.successfactors.com/sf/recruiting?company=C0001172882P')">
 <img alt="MiRecruiting ECM" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/e69c3cc3b44049d284da/MiRecruitingRCM1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
-<span class="app-name">MiRecruiting ECM Turbine</span>
+<span class="app-name">MiRecruiting: RCM</span>
 <div class="app-item-tags">
 <span class="tag pink">HR Managers</span>
 </div>
 </div>
 <div class="app-item" onclick="openApp('https://cipla.turbohire.co/login')">
 <img alt="MiRecruiting Turbohire" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/e7cd028c00cd45eaadc3/MiRecruitingTurbohire1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
-<span class="app-name">MiRecruiting Turbohire</span>
+<span class="app-name">MiRecruiting: Turbohire</span>
 <div class="app-item-tags">
 <span class="tag blue">Requisitions</span>
 </div>
@@ -586,7 +600,7 @@
 </div>
 <div class="app-item" onclick="openApp('https://ciplaltd.sharepoint.com/sites/EthicsCaseTracker/SitePages/CreateRequest.aspx')">
 <img alt="BI Case Management" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/c2d14da2562747a4a314/ERCaseManagement1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
-<span class="app-name">BI Case Management</span>
+<span class="app-name">ER Case Management</span>
 <div class="app-item-tags">
 <span class="tag gray">Case Tracking</span>
 </div>
