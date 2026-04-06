@@ -112,9 +112,18 @@
 
   /* Welcome heading */
   .welcome-heading {
-    font-family: 'Poppins', sans-serif; font-size: 20.64px; font-weight: 500;
-    color: var(--blue-mid); flex-shrink: 0; line-height: 1.3; width: 542px; height: 21px; ; letter-spacing: 0px;
-  }
+  font-family: 'Poppins', sans-serif;
+  font-size: 20.64px;
+  font-weight: 600;
+  color: var(--blue-mid);
+  flex-shrink: 0;
+  line-height: 1.3;
+  width: 542px;
+  letter-spacing: 0px;
+
+  padding: 10px 0;   /* 👈 adds vertical breathing space */
+  height: auto;      /* 👈 IMPORTANT: remove fixed height */
+}
 
   /* ── Quick Action card ── */
   .qa-card {
@@ -123,7 +132,7 @@
     box-shadow: 0 2px 10px rgba(0,48,135,0.07);
   }
   .section-title {
-    font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 600;
+    font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 600; margin-top: 20px;  
     color: var(--text-dark); margin-bottom: 14px; width: 183.65px; line-height: 150%; letter-spacing: 0;
   }
   .qa-row {
@@ -134,7 +143,7 @@
     gap: 6px; width: 90px; padding: 0;
   }
   .qa-app {
-  width: 150px;
+  width: 130px;
   height: 210px;
   background: #D9D9D933;
   border-radius: 12px;
@@ -145,8 +154,8 @@
 }
 
 .app-item {
-  width: 130px;
-  height: 180px;
+  width: 170px;
+  height: 200px;
   background: #D9D9D933;
   border-radius: 12px;
   padding: 12px;
@@ -227,11 +236,11 @@
 
   /* App grid inside a section card */
   .app-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(130px, 150px));
-    gap: 10px;
-    justify-content: start;
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 130px));
+  gap: 10px;
+  justify-content: start;
+}
 
   /* Each app item */
   .app-item {
@@ -344,6 +353,7 @@
 <span class="qa-name">Mi Time</span>
 <div class="qa-tags">
 <span class="tag green">Leaves</span>
+<span class="tag green">Time</span>
 <span class="tag pink">Attendance</span>
 <span class="tag blue">Holidays</span>
 </div>
@@ -352,29 +362,27 @@
 <img alt="Mi Pay" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/6b745e83efa248c586dd/MiPay.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
 <span class="qa-name">Mi Pay</span>
 <div class="qa-tags">
-<span class="tag green">Salary</span>
-<span class="tag green">Loan to TR</span>
-<span class="tag pink">IT Declaration</span>
-<span class="tag blue">Offcycle</span>
-<span class="tag gray">EPF</span>
+<span class="tag green">Salary slip</span>
+<span class="tag green">IT declaration</span>
+<span class="tag pink">Choice Pay</span>
+<span class="tag blue">Childcare</span>
 </div>
 </div>
 <div class="qa-app" onclick="openApp('https://iexpense.cipla.com/mscallback.do')">
 <img alt="Mi Travel" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/c2a02753f8e44c8e84e7/MiTravelReimbursements1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
 <span class="qa-name">Mi Travel &amp; Reimbursements</span>
 <div class="qa-tags">
-<span class="tag blue">Reimbursements</span>
-<span class="tag pink">Allowances</span>
+<span class="tag blue">Travel booking</span>
+<span class="tag pink">Reimbursement</span>
 </div>
 </div>
 <div class="qa-app" onclick="openApp('https://massist.in/c1kfq29')">
 <img alt="Mi Benefits" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/39496fc7620f4b90bb3b/MiBenefits.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
 <span class="qa-name">Mi Benefits</span>
 <div class="qa-tags">
-<span class="tag blue">Insurance</span>
-<span class="tag green">E-Cards</span>
-<span class="tag teal">Hospital Network</span>
-<span class="tag orange">New Claim &amp; Tracking</span>
+<span class="tag blue">Medical insurane</span>
+<span class="tag green">Network hospital</span>
+<span class="tag teal">Claim processing</span>
 </div>
 </div>
 </div>
@@ -387,45 +395,52 @@
 <img alt="Performance" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/27ffd88edc0e47cb98f5/Performance.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
 <span class="app-name">Performance</span>
 <div class="app-item-tags">
-<span class="tag pink">My Goals</span>
-<span class="tag blue">Reviews</span>
+<span class="tag pink">Annual review</span>
+<span class="tag blue">Regular Checkins</span>
 </div>
 </div>
 <div class="app-item" onclick="openApp('https://performancemanager10.successfactors.com/sf/personalinfo?company=C0001172882P')">
 <img alt="Mi Profile" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/f37d55ef11694453bdb7/MiProfileMiSelfService1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
 <span class="app-name">Mi Profile &amp; Mi Self-Service</span>
 <div class="app-item-tags">
-<span class="tag blue">Employee Data</span>
-<span class="tag green">Update Info</span>
+<span class="tag blue">Employee profile</span>
+<span class="tag green">Self Service</span>
 </div>
 </div>
 <div class="app-item" onclick="openApp('https://myapp.cipla.com/Nomination/')">
 <img alt="Mi Nomination" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/4bf0d3f9c9304450befe/MiNomination1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
 <span class="app-name">Mi Nomination</span>
 <div class="app-item-tags">
-<span class="tag blue">Nominations</span>
+<span class="tag blue">Retirals</span>
+<span class="tag blue">Insurance</span>
+<span class="tag blue">F&F</span>
 </div>
 </div>
 <div class="app-item" onclick="openApp('https://performancemanager10.successfactors.com/sf/goals?company=C0001172882P')">
 <img alt="Goals" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/97d210556ea74cdfaef6/midnagoals1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
 <span class="app-name">Goals</span>
 <div class="app-item-tags">
-<span class="tag blue">DNA Goals</span>
-<span class="tag pink">OKRs</span>
+<span class="tag blue">Goal management</span>
+<span class="tag pink">Goal Checkins</span>
 </div>
 </div>
 <div class="app-item" onclick="openApp('https://performancemanager10.successfactors.com/sf/home?')">
 <img alt="MiHorizon" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/1a8ea0fdf5dd497f9c16/MiHorizon1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
 <span class="app-name">MiHorizon</span>
 <div class="app-item-tags">
-<span class="tag teal">Career Growth</span>
+<span class="tag teal">HR Information <br> system</span>
+<span class="tag teal">Employee Lifecycle</span>
+
 </div>
 </div>
 <div class="app-item" onclick="openApp('https://performancemanager10.successfactors.com/sf/orgchart?company=C0001172882P')">
 <img alt="MiOrgChart" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/e09a5a49c400440a935a/MiOrgchart1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
 <span class="app-name">MiOrgChart</span>
 <div class="app-item-tags">
-<span class="tag blue">Org Structure</span>
+<span class="tag blue">Org heirarchy</span>
+<span class="tag blue">Position<br>management</span>
+<span class="tag blue">Job requisition</span>
+
 </div>
 </div>
 </div>
@@ -440,22 +455,22 @@
 <img alt="MiLearning" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/db2cd0ac4bc4400d976f/milearningwhite.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
 <span class="app-name">MiLearning (LMS)</span>
 <div class="app-item-tags">
-<span class="tag blue">Courses</span>
-<span class="tag green">Certifications</span>
+<span class="tag blue">Learning modules</span>
+<span class="tag green">Mandatory trainings</span>
 </div>
 </div>
 <div class="app-item" onclick="openApp('https://milearning.cipla.com')">
 <img alt="Learning Calendar" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/6f88e91d381649d49838/LearningCalendar1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
 <span class="app-name">Learning Calendar</span>
 <div class="app-item-tags">
-<span class="tag orange">Schedule</span>
+<span class="tag orange">Curated Calendar</span>
 </div>
 </div>
 <div class="app-item" onclick="openApp('https://Ciplamilearning.edcast.com')">
 <img alt="Cipla University" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/a41fb8af7bf1468daecb/CiplaUniversityCornerstone1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
-<span class="app-name">Cipla University</span>
+<span class="app-name">Cipla University (Cornerstone)</span>
 <div class="app-item-tags">
-<span class="tag teal">Programs</span>
+<span class="tag teal">Micro learning</span>
 </div>
 </div>
 </div>
@@ -468,27 +483,28 @@
 <img alt="MiRecruiting Turbohire" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/e7cd028c00cd45eaadc3/MiRecruitingTurbohire1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
 <span class="app-name">MiRecruiting Turbohire</span>
 <div class="app-item-tags">
-<span class="tag blue">Job Postings</span>
+<span class="tag blue">Hiring managers</span>
 </div>
 </div>
 <div class="app-item" onclick="openApp('https://performancemanager10.successfactors.com/sf/recruiting?company=C0001172882P')">
 <img alt="MiRecruiting ECM" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/e69c3cc3b44049d284da/MiRecruitingRCM1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
 <span class="app-name">MiRecruiting: RCM</span>
 <div class="app-item-tags">
-<span class="tag pink">HR Managers</span>
+<span class="tag pink">Recruiters</span>
 </div>
 </div>
 <div class="app-item" onclick="openApp('https://cipla.turbohire.co/login')">
 <img alt="MiRecruiting Turbohire" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/e7cd028c00cd45eaadc3/MiRecruitingTurbohire1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
 <span class="app-name">MiRecruiting: Turbohire</span>
 <div class="app-item-tags">
-<span class="tag blue">Requisitions</span>
+<span class="tag blue">Recruiters</span>
 </div>
 </div>
 <div class="app-item" onclick="openApp('https://cipla.tydy.co/')">
 <img alt="MiOnboarding" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/ea469690a836474ca8d7/MiOnboarding1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
 <span class="app-name">MiOnboarding</span>
 <div class="app-item-tags">
+<span class="tag green">New joiner</span>
 <span class="tag green">Onboarding</span>
 </div>
 </div>
@@ -496,7 +512,9 @@
 <img alt="MiCareers" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/1e5d07792d214325990d/MiCareers1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
 <span class="app-name">MiCareers</span>
 <div class="app-item-tags">
-<span class="tag teal">Internal Jobs</span>
+<span class="tag teal">Internal Job<br>posting</span>
+<span class="tag teal">Referal</span>
+
 </div>
 </div>
 </div>
@@ -512,25 +530,24 @@
 <img alt="Mi Volunteering" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/ffcf4064096e4dabb9dc/MiVolunteering1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
 <span class="app-name">Mi Volunteering</span>
 <div class="app-item-tags">
-<span class="tag green">CSR</span>
-<span class="tag teal">Activities</span>
+<span class="tag green">Cipla for Change</span>
 </div>
 </div>
 <div class="app-item" onclick="openApp('https://cipla.thanks.com/app/login/sso')">
 <img alt="Mi Recognition" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/b0ee0f8ff3f2488aa13f/MiRecognition1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
 <span class="app-name">Mi Recognition</span>
 <div class="app-item-tags">
-<span class="tag pink">Awards</span>
-<span class="tag orange">Kudos</span>
+<span class="tag pink">Applause</span>
+<span class="tag orange">Thanks</span>
 </div>
 </div>
 <div class="app-item" onclick="openApp('https://www.amahahealth.com/auth/sso/?redirectPage=log-in')">
 <img alt="Mi Wellbeing" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/2b321e9347b749529001/MiWellbeing1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
 <span class="app-name">Mi Wellbeing</span>
 <div class="app-item-tags">
-<span class="tag teal">Health Programs</span>
-<span class="tag blue">Wellness Points</span>
-<span class="tag green">Wellbeing Accessories</span>
+<span class="tag teal">Private counselling</span>
+<span class="tag blue">Mental health<br>assesment</span>
+<span class="tag green">Mindfulness</span>
 </div>
 </div>
 </div>
@@ -543,8 +560,8 @@
 <img alt="Mi Earned Salary" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/10a71ff3399747ae876e/MiEarnedSalary1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
 <span class="app-name">Mi Earned Salary</span>
 <div class="app-item-tags">
-<span class="tag green">Salary</span>
-<span class="tag blue">Advances</span>
+<span class="tag green">Realtime access</span>
+<span class="tag blue">Earned Salary</span>
 </div>
 </div>
 <div class="app-item" onclick="openApp('https://jam10.sapjam.com/groups/VW0rKyORKawv8Aa6z6huMS/overview_page/H9LZzlWGLdYJhLUZJxSPfM')">
@@ -558,15 +575,14 @@
 <img alt="Mi Separation" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/1b421260e97045d4af7e/MiSeparation1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
 <span class="app-name">Mi Separation</span>
 <div class="app-item-tags">
-<span class="tag gray">Exit Process</span>
+<span class="tag gray">eSeparation</span>
 </div>
 </div>
 <div class="app-item" onclick="openApp('https://apc01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcipla.m42cloud.com%2Fwm%2F&data=05%7C01%7Cabdeali.nalwala%40Cipla.com%7C4e0131ecbaa944908e6e08db0e5f2b2a%7Ce6fd9f9f6c494254b8e890fba073cceb%7C0%7C0%7C638119574123239089%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=r1gVD3CIDutG07%2B8yQQAJasqWMQLXoZ75XTmTNJO%2B8M%3D&reserved=0')">
 <img alt="IT Helpdesk" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/901d2bc0ff624a0ba93d/Itelpdesk.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
 <span class="app-name">IT Helpdesk</span>
 <div class="app-item-tags">
-<span class="tag orange">App Permissions</span>
-<span class="tag green">New/Return Devices</span>
+<span class="tag orange">iService</span>
 </div>
 </div>
 </div>
@@ -580,36 +596,41 @@
 <img alt="JE Central" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/030ba5630fc14f1ebc2e/JECentral1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
 <span class="app-name">JE Central</span>
 <div class="app-item-tags">
-<span class="tag blue">Job Evaluation</span>
+<span class="tag blue">Role evaluation</span>
+<span class="tag blue">Track roles</span>
+<span class="tag blue">Job description</span>
+
 </div>
 </div>
 <div class="app-item" onclick="openApp('https://insights.cipla.com/')">
 <img alt="People Analytics" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/a65f188bd8c8415a9199/PeopleAnalytics.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
 <span class="app-name">People Analytics</span>
 <div class="app-item-tags">
-<span class="tag blue">Budget Planning</span>
-<span class="tag pink">Manpower Planning</span>
+<span class="tag blue">Dashboards</span>
+<span class="tag pink">HR Analytics</span>
 </div>
 </div>
 <div class="app-item" onclick="openApp('https://talentcentral.cipla.com')">
 <img alt="Talent Central" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/70b398ee0bb64978a87e/TalentCentral1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
 <span class="app-name">Talent Central</span>
 <div class="app-item-tags">
-<span class="tag teal">Talent Pool</span>
+<span class="tag teal">Talent Review</span>
+<span class="tag teal">Development<br>Review</span>
+
 </div>
 </div>
 <div class="app-item" onclick="openApp('https://ciplaltd.sharepoint.com/sites/EthicsCaseTracker/SitePages/CreateRequest.aspx')">
 <img alt="BI Case Management" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/c2d14da2562747a4a314/ERCaseManagement1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
 <span class="app-name">ER Case Management</span>
 <div class="app-item-tags">
-<span class="tag gray">Case Tracking</span>
+<span class="tag gray">Track employee <br> relation</span>
 </div>
 </div>
 <div class="app-item" onclick="openApp('https://ciplaltd.sharepoint.com/sites/policyreview?xsdata=MDV8MDJ8YWJkZWFsaS5uYWx3YWxhQENpcGxhLmNvbXxhN2NkYTE3YzIwYWM0MThiNzNjNzA4ZGRjODNmYjg0MHxlNmZkOWY5ZjZjNDk0MjU0YjhlODkwZmJhMDczY2NlYnwwfDB8NjM4ODg2ODk4MjI3NDUxNzk0fFVua25vd258VFdGcGJHWnNiM2Q4ZXlKRmJYQjBlVTFoY0draU9uUnlkV1VzSWxZaU9pSXdMakF1TURBd01DSXNJbEFpT2lKWGFXNHpNaUlzSWtGT0lqb2lUV0ZwYkNJc0lsZFVJam95ZlE9PXwwfHx8&sdata=ZjN4MGk0T2hPYzBMUVN4YndTK1EvR3FGTFYwNDMrUmo4MXcrYThwNzFCOD0%3d')">
 <img alt="Policy Review" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/59a92f8327b64bc9bb12/Policyreview1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
 <span class="app-name">Policy Review</span>
 <div class="app-item-tags">
-<span class="tag blue">HR Policies</span>
+<span class="tag blue">Policy review <br>mechanism</span>
 </div>
 </div>
 </div>
