@@ -39,6 +39,10 @@
     padding: 18px 0 24px;
     position: fixed; top: 0; left: 0; bottom: 0; z-index: 100;
   }
+    .sidebar-item a {
+  text-decoration: none;
+  color: inherit;
+  }
   .sidebar-item {
     display: flex; flex-direction: column; align-items: center;
     gap: 4px; padding: 12px 8px; cursor: pointer; width: 100%;
@@ -223,8 +227,8 @@
   /* ── Section grid rows ── */
   /* Two-column layout for paired sections (Learning + Careers, etc.) */
   .two-col-row {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 14px; flex-shrink: 0; align-items: start;
+    display: grid; grid-template-columns: 0fr 1fr;
+    gap: 150px; flex-shrink: 0; align-items: start;
   }
 
   /* Section card */
@@ -325,54 +329,100 @@
 </style>
 </head>
 <body>
-<!-- ── SIDEBAR ── -->
+<!-- SIDEBAR -->
 <nav class="sidebar">
+
+<!-- Home -->
 <div class="sidebar-item active">
-<div class="icon-wrap" onclick="openApp('https://workzone-prod-w6v2igr4.workzonehr.cfapps.ap10.hana.ondemand.com/site#cipla-home?sap-app-origin-hint=&sap-ui-app-id-hint=0de60b44-000c-4509-8350-c525888a152d')">
-<img alt="Home" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/eb975205cf0e4155b28d/Icon.png"/>
-</div>
-    Home
+  
+  <div class="icon-wrap">
+    <a href="https://workzone-prod-w6v2igr4.workzonehr.cfapps.ap10.hana.ondemand.com/site#workzone-home&/home" target="_blank">
+      <img src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/eb975205cf0e4155b28d/Icon.png" alt="Home">
+    </a>
   </div>
+
+  <div>
+    <a href="https://workzone-prod-w6v2igr4.workzonehr.cfapps.ap10.hana.ondemand.com/site#workzone-home&/home" target="_blank">
+      Home
+    </a>
+  </div>
+
+</div>
+
+<!-- Employee Self-Service -->
 <div class="sidebar-item" style="margin-top:8px;">
-<div class="icon-wrap">
-<a href="https://workzone-prod-w6v2igr4.workzonehr.cfapps.ap10.hana.ondemand.com/site#Cipla-ESS?sap-app-origin-hint=&amp;sap-ui-app-id-hint=12a3af88-57f9-46da-8255-2f4df348b538" target="_blank"><img alt="Employee Self-Service" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/8f7162e124ec47978655/Grid.png"/></a>
-</div>
-    Employee<br/>Self-Service
+  
+  <div class="icon-wrap">
+    <a href="https://workzone-prod-w6v2igr4.workzonehr.cfapps.ap10.hana.ondemand.com/site#Cipla-ESS?sap-app-origin-hint=&sap-ui-app-id-hint=12a3af88-57f9-46da-8255-2f4df348b538" target="_blank">
+      <img src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/8f7162e124ec47978655/Grid.png" alt="Employee Self-Service">
+    </a>
   </div>
-<div class="region-wrap" style="margin-top:8px;">
-<div class="sidebar-item" id="regionBtn" onclick="toggleRegionDropdown(event)">
-<div class="icon-wrap">
-<img alt="Region" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/82cec4bb0cc545c39624/Group114.png"/>
+
+  <div>
+    <a href="https://workzone-prod-w6v2igr4.workzonehr.cfapps.ap10.hana.ondemand.com/site#Cipla-ESS?sap-app-origin-hint=&sap-ui-app-id-hint=12a3af88-57f9-46da-8255-2f4df348b538" target="_blank">
+      Employee<br>Self-Service
+    </a>
+  </div>
+
 </div>
-      Region<br/><span id="regionLabel">India</span>
-</div>
-<div class="region-dropdown" id="regionDropdown">
-<div class="region-dropdown-item selected">
-<span class="check">✓</span> India
+
+  <!-- Region -->
+  <div class="region-wrap" style="margin-top:8px;">
+    <div class="sidebar-item" id="regionBtn" onclick="toggleRegionDropdown(event)">
+      <div class="icon-wrap">
+        <img src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/82cec4bb0cc545c39624/Group114.png" alt="Region">
       </div>
-<a class="region-dropdown-item" href="https://workzone-prod-w6v2igr4.workzonehr.cfapps.ap10.hana.ondemand.com/site#workzone-home&amp;/home/x4FnQ571eHJHvzbSVID024" target="_blank">
-<span class="check"></span> EMEU
+      <div>
+        Region<br><span id="regionLabel">India</span>
+      </div>
+    </div>
+
+    <div class="region-dropdown" id="regionDropdown">
+      <div class="region-dropdown-item selected">
+        <span class="check">✓</span> India
+      </div>
+
+      <a class="region-dropdown-item" href="https://workzone-prod-w6v2igr4.workzonehr.cfapps.ap10.hana.ondemand.com/site#workzone-home&/home/x4FnQ571eHJHvzbSVID024" target="_blank">
+        <span class="check"></span> EMEU
       </a>
-<a class="region-dropdown-item" href="https://workzone-prod-w6v2igr4.workzonehr.cfapps.ap10.hana.ondemand.com/site#workzone-home&amp;/home/WGc33O2txB9Gbr9W4q6024" target="_blank">
-<span class="check"></span> One Africa
+
+      <a class="region-dropdown-item" href="https://workzone-prod-w6v2igr4.workzonehr.cfapps.ap10.hana.ondemand.com/site#workzone-home&/home/WGc33O2txB9Gbr9W4q6024" target="_blank">
+        <span class="check"></span> One Africa
       </a>
-<a class="region-dropdown-item" href="https://workzone-prod-w6v2igr4.workzonehr.cfapps.ap10.hana.ondemand.com/site#workzone-home&/home/HPbQWT5ON9bPuxXwLle024" target="_blank">
-<span class="check"></span> Subsidiaries
+
+            <a class="region-dropdown-item" href="https://workzone-prod-w6v2igr4.workzonehr.cfapps.ap10.hana.ondemand.com/site#workzone-home&/home/HPbQWT5ON9bPuxXwLle024" target="_blank">
+        <span class="check"></span> Subsidiaries
       </a>
-<a class="region-dropdown-item" href="https://workzone-prod-w6v2igr4.workzonehr.cfapps.ap10.hana.ondemand.com/site#workzone-home&/home/Xuxy9NBhoBEb28U7zMo024" target="_blank">
-<span class="check"></span> CHL
+
+            <a class="region-dropdown-item" href="https://workzone-prod-w6v2igr4.workzonehr.cfapps.ap10.hana.ondemand.com/site#workzone-home&/home/Xuxy9NBhoBEb28U7zMo024" target="_blank">
+        <span class="check"></span> CHL
       </a>
-<a class="region-dropdown-item" href="https://workzone-prod-w6v2igr4.workzonehr.cfapps.ap10.hana.ondemand.com/site#workzone-home&amp;/home/Ey6nC87CwetoasFLo0f024" target="_blank">
-<span class="check"></span> North America
+
+      <a class="region-dropdown-item" href="https://workzone-prod-w6v2igr4.workzonehr.cfapps.ap10.hana.ondemand.com/site#workzone-home&/home/Ey6nC87CwetoasFLo0f024" target="_blank">
+        <span class="check"></span> North America
       </a>
-</div>
-</div>
-<div class="sidebar-item" style="margin-top:8px;">
-<div class="icon-wrap"><a href="https://web.leena.ai/v2/?clientId=6FzCIUNhpefA_Okufvjnf" target="_blank">
-<img alt="MiDas" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/22052b563e484ad5b4ce/icons.png" style="filter:none !important; opacity:1 !important; width:34px; height:34px;"/></a>
-</div>
-    MiDas
+    </div>
   </div>
+
+<!-- MiDas -->
+<div class="sidebar-item" style="margin-top:8px;">
+  
+  <div class="icon-wrap">
+    <a href="https://web.leena.ai/v2/?clientId=6FzCIUNhpefA_Okufvjnf" target="_blank">
+      <img src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/22052b563e484ad5b4ce/icons.png"
+           alt="MiDas"
+           style="filter:none !important; opacity:1 !important; width:34px; height:34px;">
+    </a>
+  </div>
+
+  <div>
+    <a href="https://web.leena.ai/v2/?clientId=6FzCIUNhpefA_Okufvjnf" target="_blank">
+      MiDas
+    </a>
+  </div>
+
+</div>
+
 </nav>
 <!-- ── MAIN ── -->
 <div class="main-wrapper">
@@ -421,18 +471,18 @@
 <div class="section-title">My Quick Action Apps</div>
 <div class="qa-row">
 <div class="qa-app" onclick="openApp('https://cipla.peoplestrong.com/secureSloginRedirect.jsf?organizationId=229&idp=azure')">
-<img alt="Mi Time" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/10b7b6c550d346669ebf/MiTime.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
-<span class="qa-name">Mi Time</span>
+<img alt="MiTime" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/10b7b6c550d346669ebf/MiTime.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
+<span class="qa-name">MiTime</span>
 <div class="qa-tags">
 <span class="tag green">Leaves</span>
 <span class="tag green">Time</span>
 <span class="tag pink">Attendance</span>
-<span class="tag blue">Holidays</span>
+<span class="tag blue">Holiday Calendar</span>
 </div>
 </div>
 <div class="qa-app" onclick="openApp('https://myapps.microsoft.com/signin/53369dbe-d581-4aa9-a7ab-9d3e1e38ae24?tenantId=e6fd9f9f-6c49-4254-b8e8-90fba073cceb')">
 <img alt="Mi Pay" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/6b745e83efa248c586dd/MiPay.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
-<span class="qa-name">Mi Pay</span>
+<span class="qa-name">MiPay</span>
 <div class="qa-tags">
 <span class="tag green">Salary slip</span>
 <span class="tag green">IT declaration</span>
@@ -441,8 +491,8 @@
 </div>
 </div>
 <div class="qa-app" onclick="openApp('https://iexpense.cipla.com/mscallback.do')">
-<img alt="Mi Travel" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/c2a02753f8e44c8e84e7/MiTravelReimbursements1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
-<span class="qa-name">Mi Travel &amp; Reimbursements</span>
+<img alt="Mi Travel" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/93309673c03e4113955a/travelnew.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
+<span class="qa-name">MiTravel &amp; Reimbursements</span>
 <div class="qa-tags">
 <span class="tag blue">Travel booking</span>
 <span class="tag pink">Reimbursement</span>
@@ -450,7 +500,7 @@
 </div>
 <div class="qa-app" onclick="openApp('https://massist.in/c1kfq29')">
 <img alt="Mi Benefits" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/39496fc7620f4b90bb3b/MiBenefits.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
-<span class="qa-name">Mi Benefits</span>
+<span class="qa-name">MiBenefits</span>
 <div class="qa-tags">
 <span class="tag blue">Medical insurane</span>
 <span class="tag green">Network hospital</span>
@@ -473,7 +523,7 @@
 </div>
 <div class="app-item" onclick="openApp('https://performancemanager10.successfactors.com/sf/personalinfo?company=C0001172882P')">
 <img alt="Mi Profile" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/f37d55ef11694453bdb7/MiProfileMiSelfService1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
-<span class="app-name">Mi Profile &amp; Mi Self-Service</span>
+<span class="app-name">MiProfile &amp; MiSelf-Service</span>
 <div class="app-item-tags">
 <span class="tag blue">Employee profile</span>
 <span class="tag green">Self Service</span>
@@ -481,7 +531,7 @@
 </div>
 <div class="app-item" onclick="openApp('https://myapp.cipla.com/Nomination/')">
 <img alt="Mi Nomination" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/4bf0d3f9c9304450befe/MiNomination1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
-<span class="app-name">Mi Nomination</span>
+<span class="app-name">MiNomination</span>
 <div class="app-item-tags">
 <span class="tag blue">Retirals</span>
 <span class="tag blue">Insurance</span>
@@ -600,14 +650,14 @@
 <div class="app-grid">
 <div class="app-item" onclick="openApp('https://mivolunteering.cipla.com/volunteer_events.aspx')">
 <img alt="Mi Volunteering" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/ffcf4064096e4dabb9dc/MiVolunteering1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
-<span class="app-name">Mi Volunteering</span>
+<span class="app-name">MiVolunteering</span>
 <div class="app-item-tags">
 <span class="tag green">Cipla for Change</span>
 </div>
 </div>
 <div class="app-item" onclick="openApp('https://cipla.thanks.com/app/login/sso')">
 <img alt="Mi Recognition" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/b0ee0f8ff3f2488aa13f/MiRecognition1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
-<span class="app-name">Mi Recognition</span>
+<span class="app-name">MiRecognition</span>
 <div class="app-item-tags">
 <span class="tag pink">Applause</span>
 <span class="tag orange">Thanks</span>
@@ -615,7 +665,7 @@
 </div>
 <div class="app-item" onclick="openApp('https://www.amahahealth.com/auth/sso/?redirectPage=log-in')">
 <img alt="Mi Wellbeing" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/2b321e9347b749529001/MiWellbeing1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
-<span class="app-name">Mi Wellbeing</span>
+<span class="app-name">MiWellbeing</span>
 <div class="app-item-tags">
 <span class="tag teal">Private counselling</span>
 <span class="tag blue">Mental health<br>assesment</span>
@@ -630,7 +680,7 @@
 <div class="app-grid">
 <div class="app-item" onclick="openApp('https://app.refyne.co.in/#/loginRegister?authType=PHONE&tncType=EXPLICIT&referral=DISABLED')">
 <img alt="Mi Earned Salary" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/10a71ff3399747ae876e/MiEarnedSalary1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
-<span class="app-name">Mi Earned Salary</span>
+<span class="app-name">MiEarned Salary</span>
 <div class="app-item-tags">
 <span class="tag green">Realtime access</span>
 <span class="tag blue">Earned Salary</span>
@@ -645,7 +695,7 @@
 </div>
 <div class="app-item" onclick="openApp('https://performancemanager10.successfactors.com/sf/liveprofile?mdfBlock=SEPARATION_UI1&bplte_company=C0001172882P')">
 <img alt="Mi Separation" src="https://dmscdn.successfactors.com/e67bac61f74a3e78a20b20c3bff5abd417dd0605df72755f101e24743407f67c/static_content/1b421260e97045d4af7e/MiSeparation1.png" style="width:50px;height:50px;object-fit:contain;cursor:pointer;flex-shrink:0;"/>
-<span class="app-name">Mi Separation</span>
+<span class="app-name">MiSeparation</span>
 <div class="app-item-tags">
 <span class="tag gray">eSeparation</span>
 </div>
@@ -714,10 +764,12 @@
 <script>
   // ── Staggered icon load animation ──
   document.querySelectorAll('.qa-icon, .app-circle').forEach((el, i) => {
-    el.style.opacity = '0'; el.style.transform = 'translateY(10px)';
+    el.style.opacity = '0'; 
+    el.style.transform = 'translateY(10px)';
     setTimeout(() => {
       el.style.transition = 'opacity .3s, transform .3s';
-      el.style.opacity = '1'; el.style.transform = 'none';
+      el.style.opacity = '1'; 
+      el.style.transform = 'none';
     }, 40 + i * 35);
   });
 
@@ -738,82 +790,141 @@
   });
 
 
-  /* ───────── SEARCH LOGIC ───────── */
+  /* ───────── ADVANCED SEARCH LOGIC ───────── */
 
   const searchInput = document.getElementById('appSearch');
   const dropdown = document.getElementById('searchDropdown');
   const clearBtn = document.getElementById('clearSearch');
 
-  // collect all apps
   const apps = document.querySelectorAll('.qa-app, .app-item');
 
   let appData = [];
+  let tagMap = {};
 
+  /* 🔹 COLLECT DATA */
   apps.forEach(app => {
-    const name = app.querySelector('.qa-name, .app-name')?.innerText.toLowerCase() || '';
-    const tags = Array.from(app.querySelectorAll('.tag')).map(t => t.innerText.toLowerCase()).join(' ');
+    const nameEl = app.querySelector('.qa-name, .app-name');
+    const name = nameEl ? nameEl.innerText : '';
+
+    const tagsArr = Array.from(app.querySelectorAll('.tag')).map(t => t.innerText);
     const onclick = app.getAttribute('onclick');
 
-    appData.push({
-      element: app,
+    const appObj = {
       name,
-      tags,
+      nameLower: name.toLowerCase(),
+      tags: tagsArr,
+      tagsLower: tagsArr.map(t => t.toLowerCase()),
       onclick
+    };
+
+    appData.push(appObj);
+
+    // map tags → apps
+    tagsArr.forEach(tag => {
+      if (!tagMap[tag]) tagMap[tag] = [];
+      tagMap[tag].push(appObj);
     });
   });
 
-  /* 🔍 LIVE SEARCH */
-  searchInput.addEventListener('input', function() {
+  const allTags = Object.keys(tagMap);
+
+  /* 🔍 SEARCH INPUT */
+  searchInput.addEventListener('input', function () {
     const query = this.value.toLowerCase().trim();
 
-    // show/hide ❌ button
-    clearBtn.style.display = this.value ? 'block' : 'none';
-
     dropdown.innerHTML = '';
+    clearBtn.style.display = query ? 'block' : 'none';
 
     if (!query) {
       dropdown.style.display = 'none';
       return;
     }
 
-    const results = appData.filter(app =>
-      app.name.includes(query) || app.tags.includes(query)
+    const matchedTags = allTags.filter(tag =>
+      tag.toLowerCase().includes(query)
     );
 
-    if (results.length === 0) {
-      dropdown.style.display = 'none';
+    const matchedApps = appData.filter(app =>
+      app.nameLower.includes(query)
+    );
+
+    /* ✅ TAG MODE → SHOW TAG + RELATED APPS */
+    if (matchedTags.length > 0) {
+
+      matchedTags.slice(0, 4).forEach(tag => {
+
+        // 🔖 TAG HEADER
+        const tagItem = document.createElement('div');
+        tagItem.style.padding = '8px 12px';
+        tagItem.style.fontSize = '12px';
+        tagItem.style.fontWeight = '600';
+        tagItem.style.color = '#1565c0';
+
+        tagItem.innerHTML = `🔖 ${tag}`;
+        dropdown.appendChild(tagItem);
+
+        // 👉 RELATED APPS
+        tagMap[tag].forEach(app => {
+          const subItem = document.createElement('div');
+
+          subItem.style.padding = '6px 24px';
+          subItem.style.cursor = 'pointer';
+          subItem.style.fontSize = '12px';
+
+          subItem.innerHTML = `→ ${app.name}`;
+
+          subItem.onclick = () => {
+            eval(app.onclick);
+          };
+
+          subItem.onmouseover = () => subItem.style.background = '#f0f6ff';
+          subItem.onmouseout = () => subItem.style.background = '#fff';
+
+          dropdown.appendChild(subItem);
+        });
+
+      });
+
+      dropdown.style.display = 'block';
       return;
     }
 
-    results.slice(0, 6).forEach(app => {
-      const item = document.createElement('div');
+    /* ✅ APP MODE */
+    if (matchedApps.length > 0) {
 
-      item.style.padding = '8px 12px';
-      item.style.cursor = 'pointer';
-      item.style.fontSize = '12px';
+      matchedApps.slice(0, 6).forEach(app => {
+        const item = document.createElement('div');
 
-      item.innerHTML = `<strong>${app.name}</strong>`;
+        item.style.padding = '8px 12px';
+        item.style.cursor = 'pointer';
+        item.style.fontSize = '12px';
 
-      item.onclick = () => {
-        eval(app.onclick);
-      };
+        item.innerHTML = app.name; // proper case
 
-      item.onmouseover = () => item.style.background = '#f0f6ff';
-      item.onmouseout = () => item.style.background = '#fff';
+        item.onclick = () => {
+          eval(app.onclick);
+        };
 
-      dropdown.appendChild(item);
-    });
+        item.onmouseover = () => item.style.background = '#f0f6ff';
+        item.onmouseout = () => item.style.background = '#fff';
 
-    dropdown.style.display = 'block';
+        dropdown.appendChild(item);
+      });
+
+      dropdown.style.display = 'block';
+      return;
+    }
+
+    dropdown.style.display = 'none';
   });
 
-  /* ⌨️ ENTER KEY REDIRECT */
-  searchInput.addEventListener('keydown', function(e) {
+  /* ⌨️ ENTER KEY */
+  searchInput.addEventListener('keydown', function (e) {
     if (e.key === 'Enter') {
-      const query = this.value.toLowerCase().trim();
+      const query = this.value.toLowerCase();
 
       const match = appData.find(app =>
-        app.name.includes(query) || app.tags.includes(query)
+        app.nameLower.includes(query)
       );
 
       if (match) {
@@ -822,7 +933,7 @@
     }
   });
 
-  /* ❌ CLICK ❌ → CLEAR */
+  /* ❌ CLEAR BUTTON */
   clearBtn.addEventListener('click', function () {
     searchInput.value = '';
     dropdown.style.display = 'none';
@@ -830,8 +941,8 @@
     searchInput.focus();
   });
 
-  /* ❌ CLICK OUTSIDE CLOSE */
-  document.addEventListener('click', function(e) {
+  /* CLICK OUTSIDE → CLOSE */
+  document.addEventListener('click', function (e) {
     if (!e.target.closest('.search-bar-left')) {
       dropdown.style.display = 'none';
     }
