@@ -237,13 +237,13 @@
   }
 
   /* App grid inside a section card */
-  .app-grid {
+  /* .app-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 10px; 
   max-width: 800px;
   justify-content: start;
-  }
+  } */
 
   /* Each app item */
   .app-item {
@@ -287,10 +287,28 @@
   @media (max-width: 900px) {
     .two-col-row { grid-template-columns: 1fr; }
   }
-  @media (max-width: 1366px) {
+  @media (max-width: 1362px) {
   .app-grid {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 12px; /* slightly reduce gap */}
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px; 
+  max-width: 800px;
+  justify-content: start;}
+  }
+  @media (max-width: 1276px) {
+  .app-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 18px; 
+  max-width: 800px;
+  justify-content: start;}
+  }
+  @media (min-width: 1536px) {
+  .app-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px; 
+  max-width: 800px;}
   }
   @media (max-width: 640px) {
     .main-wrapper { margin-left: 0; }
@@ -331,6 +349,12 @@
 <a class="region-dropdown-item" href="https://workzone-prod-w6v2igr4.workzonehr.cfapps.ap10.hana.ondemand.com/site#workzone-home&amp;/home/WGc33O2txB9Gbr9W4q6024" target="_blank">
 <span class="check"></span> One Africa
       </a>
+<a class="region-dropdown-item" href="https://workzone-prod-w6v2igr4.workzonehr.cfapps.ap10.hana.ondemand.com/site#workzone-home&/home/HPbQWT5ON9bPuxXwLle024" target="_blank">
+<span class="check"></span> Subsidiaries
+      </a>
+<a class="region-dropdown-item" href="https://workzone-prod-w6v2igr4.workzonehr.cfapps.ap10.hana.ondemand.com/site#workzone-home&/home/Xuxy9NBhoBEb28U7zMo024" target="_blank">
+<span class="check"></span> CHL
+      </a>
 <a class="region-dropdown-item" href="https://workzone-prod-w6v2igr4.workzonehr.cfapps.ap10.hana.ondemand.com/site#workzone-home&amp;/home/Ey6nC87CwetoasFLo0f024" target="_blank">
 <span class="check"></span> North America
       </a>
@@ -347,9 +371,41 @@
 <div class="main-wrapper">
 <div class="full-panel">
 <!-- Search bar -->
-<div class="search-bar-left">
-<svg fill="none" height="15" stroke="#bbb" stroke-width="2.5" viewbox="0 0 24 24" width="15"><circle cx="11" cy="11" r="8"></circle><line x1="21" x2="16.65" y1="21" y2="16.65"></line></svg>
-<input placeholder="Search for payslips, leaves, expenses…" type="text"/>
+<div class="search-bar-left" style="position:relative;">
+  
+  <svg fill="none" height="15" stroke="#bbb" stroke-width="2.5" viewbox="0 0 24 24" width="15">
+    <circle cx="11" cy="11" r="8"></circle>
+    <line x1="21" x2="16.65" y1="21" y2="16.65"></line>
+  </svg>
+
+  <input id="appSearch" placeholder="Search for payslips, leaves, expenses…" type="text"/>
+
+  <!-- ❌ CLEAR BUTTON -->
+  <span id="clearSearch" style="
+      position:absolute;
+      right:12px;
+      cursor:pointer;
+      font-size:14px;
+      color:#999;
+      display:none;
+  ">✕</span>
+
+  <!-- DROPDOWN -->
+  <div id="searchDropdown" style="
+      position:absolute;
+      top:38px;
+      left:0;
+      right:0;
+      background:#fff;
+      border:1px solid #e0ecf7;
+      border-radius:8px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.1);
+      display:none;
+      z-index:999;
+      max-height:220px;
+      overflow-y:auto;
+  "></div>
+
 </div>
 <!-- Welcome heading -->
 <div class="welcome-heading">Hey, Welcome to My Employee Self-Service</div>
@@ -667,11 +723,113 @@
     e.stopPropagation();
     document.getElementById('regionDropdown').classList.toggle('open');
   }
+
   document.addEventListener('click', function(e) {
     if (!document.getElementById('regionBtn').contains(e.target)) {
       document.getElementById('regionDropdown').classList.remove('open');
     }
   });
+
+
+  /* ───────── SEARCH LOGIC ───────── */
+
+  const searchInput = document.getElementById('appSearch');
+  const dropdown = document.getElementById('searchDropdown');
+  const clearBtn = document.getElementById('clearSearch');
+
+  // collect all apps
+  const apps = document.querySelectorAll('.qa-app, .app-item');
+
+  let appData = [];
+
+  apps.forEach(app => {
+    const name = app.querySelector('.qa-name, .app-name')?.innerText.toLowerCase() || '';
+    const tags = Array.from(app.querySelectorAll('.tag')).map(t => t.innerText.toLowerCase()).join(' ');
+    const onclick = app.getAttribute('onclick');
+
+    appData.push({
+      element: app,
+      name,
+      tags,
+      onclick
+    });
+  });
+
+  /* 🔍 LIVE SEARCH */
+  searchInput.addEventListener('input', function() {
+    const query = this.value.toLowerCase().trim();
+
+    // show/hide ❌ button
+    clearBtn.style.display = this.value ? 'block' : 'none';
+
+    dropdown.innerHTML = '';
+
+    if (!query) {
+      dropdown.style.display = 'none';
+      return;
+    }
+
+    const results = appData.filter(app =>
+      app.name.includes(query) || app.tags.includes(query)
+    );
+
+    if (results.length === 0) {
+      dropdown.style.display = 'none';
+      return;
+    }
+
+    results.slice(0, 6).forEach(app => {
+      const item = document.createElement('div');
+
+      item.style.padding = '8px 12px';
+      item.style.cursor = 'pointer';
+      item.style.fontSize = '12px';
+
+      item.innerHTML = `<strong>${app.name}</strong>`;
+
+      item.onclick = () => {
+        eval(app.onclick);
+      };
+
+      item.onmouseover = () => item.style.background = '#f0f6ff';
+      item.onmouseout = () => item.style.background = '#fff';
+
+      dropdown.appendChild(item);
+    });
+
+    dropdown.style.display = 'block';
+  });
+
+  /* ⌨️ ENTER KEY REDIRECT */
+  searchInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+      const query = this.value.toLowerCase().trim();
+
+      const match = appData.find(app =>
+        app.name.includes(query) || app.tags.includes(query)
+      );
+
+      if (match) {
+        eval(match.onclick);
+      }
+    }
+  });
+
+  /* ❌ CLICK ❌ → CLEAR */
+  clearBtn.addEventListener('click', function () {
+    searchInput.value = '';
+    dropdown.style.display = 'none';
+    this.style.display = 'none';
+    searchInput.focus();
+  });
+
+  /* ❌ CLICK OUTSIDE CLOSE */
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.search-bar-left')) {
+      dropdown.style.display = 'none';
+    }
+  });
+
 </script>
 </body>
 </html>
