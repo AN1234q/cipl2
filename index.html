@@ -295,7 +295,7 @@
   max-width: 800px;
   justify-content: start;}
   }
-  @media (max-width: 1276px) {
+  @media (min-width: 1276px) {
   .app-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -304,6 +304,13 @@
   justify-content: start;}
   }
   @media (min-width: 1536px) {
+  .app-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px; 
+  max-width: 800px;}
+  }
+    @media (min-width: 1512px) {
   .app-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
